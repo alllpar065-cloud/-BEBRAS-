@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10264a">
+<title>Конкурс «Бобер» — 4 інтерактивні тренажери | 7–11 класи</title>
+<style>
+:root{--ink:#172744;--muted:#62738c;--blue:#2060bc;--gold:#ffc94e;--light:#edf5ff;--panel:#fff;--border:#d9e5f4;--black:#26314a;--success:#117b53;--danger:#b34143}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(135deg,#e9f4ff 0%,#f9fcff 60%,#fff6df 100%);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(120deg,#07386e,#266cba 68%,#4b96cf);color:#fff;padding:32px 20px 40px;position:relative;overflow:hidden}header:after{content:"";position:absolute;right:-60px;top:-100px;width:330px;height:330px;border:45px solid #ffffff18;border-radius:50%}.wrap{max-width:1080px;margin:auto;padding:0 18px}h1{font-size:clamp(1.6rem,4vw,2.65rem);line-height:1.2;margin:8px 0}header p{max-width:720px;opacity:.94;margin:5px 0}main{margin-top:-18px;position:relative;padding-bottom:65px}.top{display:grid;grid-template-columns:1.1fr 1fr;gap:15px}.panel{background:var(--panel);border:1px solid var(--border);border-radius:20px;box-shadow:0 8px 25px #1638630d;padding:22px;margin-bottom:16px}h2{font-size:1.17rem;margin:0 0 14px}h3{font-size:1.03rem;margin:10px 0}p{line-height:1.55}.small{font-size:.89rem;color:var(--muted)}.tag{background:#ffe9a4;color:#4f3b02;border-radius:99px;padding:6px 11px;font-size:.75rem;font-weight:800;display:inline-block}.counter{font-weight:800}.bar{height:11px;border-radius:15px;background:#e4edf8;overflow:hidden;margin-top:10px}.bar>div{height:100%;width:0;background:linear-gradient(90deg,#21a979,#6fcdac);transition:width .25s}.controls{display:flex;gap:8px;flex-wrap:wrap}.btn{border:none;border-radius:12px;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer;transition:transform .1s,background .2s}.btn:hover:not(:disabled){transform:translateY(-1px)}.btn:focus-visible,.cell:focus-visible,.task:focus-visible{outline:3px solid #f1b51e;outline-offset:3px}.btn.primary{background:var(--blue);color:white}.btn.secondary{background:#e8f1ff;color:#184b8d}.btn.ghost{background:#fff;border:1px solid #bed1ea;color:#184b8d}.btn:disabled{opacity:.45;cursor:not-allowed}.levels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.levels button.active{background:#174e95;color:white}.tasklist{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.task{padding:12px 4px;background:#f3f8ff;border:2px solid transparent;border-radius:12px;text-align:center;cursor:pointer;color:var(--ink);font-weight:750;font-size:.9rem}.task.selected{border-color:var(--blue);background:#e3f0ff}.task.done:after{content:" ✓";color:var(--success)}.task small{display:block;font-size:.7rem;font-weight:400;color:var(--muted);margin-top:3px}.workhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.instruction{margin:16px auto 20px;padding:17px;border-radius:15px;text-align:center;background:#e9f3ff;letter-spacing:.12em;font-size:clamp(1.45rem,5vw,2.1rem);font-weight:850;color:#0e4c93;overflow-wrap:anywhere}.cells{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;max-width:810px;margin:16px auto}.cell{min-width:0;aspect-ratio:1.15;background:#fff;border:2px solid #8ea5c1;border-radius:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#52637a;font-weight:650;font-size:clamp(.7rem,1.6vw,.96rem);user-select:none}.cell.black{background:var(--black);color:white;border-color:var(--black)}.cells.static .cell{cursor:default}.rule{background:#fff8e7;border-left:4px solid #e4ac29;padding:12px 15px;border-radius:9px;font-size:.93rem}.feedback{border-radius:12px;padding:12px 15px;margin-top:14px;font-weight:650}.feedback.good{background:#e3f8ee;color:#0c744b}.feedback.bad{background:#fff0ed;color:#a43636}.feedback:empty{display:none}.lock{background:#f1f6fc;border:1px dashed #adc1d9;border-radius:14px;padding:16px}.dots{display:flex;gap:7px;margin:13px 0}.dots span{height:9px;border-radius:9px;background:#d2dfec;flex:1}.dots span.on{background:#2bb67f}.hidden{display:none!important}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}.tabs button.active{background:#1b579e;color:#fff}.stepper{background:#f3f8ff;border-radius:14px;padding:16px}.treescroll{overflow-x:auto;max-width:100%;background:#f7faff;border:1px solid #e2eaf5;border-radius:14px;padding:10px}.tree{display:block;width:100%;height:auto;min-width:560px}.tree line{stroke:#8ca7c5;stroke-width:2}.tree .node circle{stroke:#7996b9;stroke-width:1.5}.tree text{font-family:system-ui,sans-serif;text-anchor:middle}.tree .main{font-weight:800;font-size:17px}.tree .sub{font-size:12px;fill:#546982}.tree .node.X circle{fill:#dfeeff}.tree .node.W circle{fill:#fff}.tree .node.B circle{fill:#26314a}.tree .node.B .main{fill:white}.tree .node.X .main,.tree .node.W .main{fill:#173456}.sep{height:1px;background:#e3ecf7;margin:18px 0}.footer{text-align:center;font-size:.85rem;color:#65748b;margin:24px}.scheme{display:flex;gap:6px;margin:10px 0}.scheme>div{text-align:center;background:#e6f0ff;padding:8px 3px;border-radius:8px;flex:1;font-size:.8rem}.tip{display:inline-flex;align-items:center;gap:8px;color:#29598d;font-size:.9rem}.sr{position:absolute;left:-10000px}.bottomNav{display:flex;justify-content:space-between;gap:12px;margin-top:14px}@media(max-width:740px){.top{grid-template-columns:1fr}.panel{padding:17px}.tasklist{grid-template-columns:repeat(4,1fr)}.cells{gap:4px}.cell{border-radius:6px}.btn{padding:10px 11px}}
+
+/* Острів бобрів — додатковий інтерактивний модуль */
+.islandQuestion{background:#e9f3ff;border-radius:13px;padding:15px 17px;margin:14px 0;font-weight:680;color:#164a86}
+.islandMapScroll{overflow-x:auto;background:linear-gradient(165deg,#e5f6fc,#f5fbff);border:1px solid #c5deea;border-radius:18px;padding:8px}
+#islandMap{display:block;width:100%;min-width:560px;height:auto;touch-action:manipulation}
+#islandMap .ground{fill:#91c96b;stroke:#6dab59;stroke-width:2}
+#islandMap .channel{stroke:white;stroke-width:7;stroke-linecap:round;opacity:.95}
+#islandMap .channel.active{stroke:#f4af28;stroke-width:10}
+#islandMap .channel.solution{stroke:#1265c0;stroke-width:10}
+#islandMap .village{cursor:pointer;outline:none}
+#islandMap .village .halo{fill:#ffffff30;stroke:#2f7ab6;stroke-width:2;stroke-dasharray:4 5}
+#islandMap .village .house{fill:#ef9b50;stroke:#8b512d;stroke-width:3}
+#islandMap .village .roof{fill:#bb5b2a;stroke:#7f4026;stroke-width:2}
+#islandMap .village .letter{fill:#29222a;font-size:27px;font-weight:900;text-anchor:middle;paint-order:stroke;stroke:white;stroke-width:4;stroke-linejoin:round}
+#islandMap .village.selected .halo{stroke:#f5bd31;stroke-width:6;fill:#ffe69b70}
+#islandMap .village.start .halo{stroke:#de7633;stroke-width:5}
+#islandMap .village.solution .halo{stroke:#1457b4;stroke-width:6}
+#islandMap .village:focus-visible .halo{stroke:#9f32c6;stroke-width:7}
+.islandToolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin:15px 0;padding:13px 15px;background:#fff8e7;border-radius:11px}
+#islandPath{overflow-wrap:anywhere}#islandExplanation p{margin:8px 0}
+.islandLayer{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #deebf5}.islandDay{background:#e1edff;border-radius:9px;padding:5px 8px;min-width:78px;text-align:center;font-weight:780;color:#154b8d}
+@media(max-width:580px){.islandToolbar{display:block}.islandToolbar>div+div{margin-top:7px}}
+
+/* Анімація — додатковий інтерактивний модуль */
+.animQuestion{background:#eef6ff;border-radius:13px;padding:15px 17px;margin:14px 0;font-weight:680;color:#164a86}
+.animGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch;margin:14px 0}
+.animCard{background:linear-gradient(180deg,#ffffff,#f6fbff);border:1px solid #d4e4f6;border-radius:16px;padding:12px;box-shadow:0 4px 12px #14325a0b}
+.animCard h4{margin:0 0 10px;font-size:1rem}.animSvg{width:100%;height:auto;display:block;background:#fbfdff;border-radius:12px;border:1px solid #edf3fb}
+.animArrow{display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;color:#1a5ca7}.programWrap{background:#fff8e7;border-radius:14px;padding:14px 16px;margin:14px 0}.programSlots{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.slot{min-width:48px;height:48px;border-radius:12px;border:2px dashed #b9cde6;background:#f4f8fd;color:#4c6581;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem}.slot.filled{border-style:solid;background:#e3f0ff;color:#0d4f96;cursor:pointer}.slot.fixed{background:#eef8f0;border-color:#93c8aa;color:#117b53}.opbar{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}.opBtn{min-width:60px}.legend{display:flex;gap:10px;flex-wrap:wrap}.legend span{background:#f2f7ff;border:1px solid #d5e5f5;padding:7px 10px;border-radius:999px;font-size:.88rem}.animTabsCard{background:#f3f8ff;border-radius:14px;padding:16px}.solutionList{padding-left:18px;margin:10px 0}.solutionList li{margin:7px 0}.miniSteps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.miniStep{background:white;border:1px solid #d8e6f6;border-radius:12px;padding:10px}.miniStep strong{display:block;margin-bottom:6px;color:#174a8b}.animNote{font-size:.92rem;color:#3a5577}.animTaskButtons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}@media(max-width:860px){.animGrid{grid-template-columns:1fr}.animArrow{transform:rotate(90deg)}}
+
+
+/* Світильники Софії */
+.lamps-map{display:block;width:100%;max-width:620px;height:auto;margin:auto;background:#ffffff;border:1px solid #d7e5f4;border-radius:17px;touch-action:manipulation}
+.lamps-map .wire{stroke:#64748b;stroke-width:2.4;stroke-linecap:round}.lamps-map .light{cursor:pointer;outline:none}.lamps-map .light circle,.lamps-map .light polygon{stroke:#264c7a;stroke-width:2.5}.lamps-map .light.source.on circle{fill:#ffcb36}.lamps-map .light.source.off circle{fill:#cf4651}.lamps-map .light.auto.on circle,.lamps-map .light.auto.on polygon{fill:#ffdf4b}.lamps-map .light.auto.off circle,.lamps-map .light.auto.off polygon{fill:#edf2fa}.lamps-map .light .number{fill:#20344f;font-size:22px;font-weight:900;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#ffffff;stroke-width:2px;stroke-linejoin:round}.lamps-map .light.source .number{fill:#fff;stroke:none}.lamps-map .light.auto circle{stroke-dasharray:5 3}.lamps-map .light.selected circle,.lamps-map .light.selected polygon{stroke:#2874ed;stroke-width:4}.lamps-map .light:focus-visible circle,.lamps-map .light:focus-visible polygon{stroke:#9928a0;stroke-width:5}.lamps-map .light.source{cursor:default}.lamps-map .light.source circle{stroke:#8b5630}.lampsStatus{display:flex;gap:10px;flex-wrap:wrap;margin:11px 0}.lampsStatus span{font-size:.85rem;padding:7px 11px;border-radius:999px;background:#edf5ff}.lampStages{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}.lampStage{background:#fff;border-radius:12px;padding:11px;border:1px solid #dce8f6}.lampStage b{color:#14599d}.lampStage small{display:block;margin-top:6px;color:#52647a}.lampList{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.lampChoice{border:2px solid #9db5d0;border-radius:10px;padding:12px 4px;background:#f2f6fc;font-weight:800;cursor:pointer}.lampChoice.on{background:#ffdb50;border-color:#d5aa25}.lampChoice:focus-visible{outline:3px solid #174e95;outline-offset:2px}@media(max-width:620px){.lampList{grid-template-columns:repeat(5,minmax(0,1fr))}.lamps-map .light .number{font-size:25px}}
+
+/* Екскурсія Сеулом */
+.seoulMapWrap{overflow-x:auto;background:linear-gradient(165deg,#e8f8f1,#f9fcff);padding:8px;border-radius:17px;border:1px solid #cce5da}.seoulMap{display:block;width:100%;min-width:570px;height:auto}.seoulMap .road{stroke:#3b6d91;stroke-width:4;stroke-linecap:round}.seoulMap .road.selected{stroke:#f1a829;stroke-width:9}.seoulMap .road.optimal{stroke:#16a46a;stroke-width:9}.seoulMap .place{cursor:pointer;outline:none}.seoulMap .place circle{fill:#eaffd9;stroke:#49945f;stroke-width:3}.seoulMap .place.visited circle{stroke:#f0a124;stroke-width:7}.seoulMap .place.start circle{fill:#fff4b8}.seoulMap .place.optimal circle{stroke:#098c62;stroke-width:6}.seoulMap .place:focus-visible circle{stroke:#9a39ae;stroke-width:7}.seoulMap .name{font-size:14px;font-weight:750;fill:#164d3f;text-anchor:middle}.seoulMap .stars{font-size:13px;font-weight:800;fill:#a85f00;text-anchor:middle}.seoulMap .distance{fill:#12385f;font-size:15px;font-weight:850;text-anchor:middle;paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}.seoulStats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0}.seoulStat{border-radius:13px;background:#f2f8ff;padding:13px;text-align:center}.seoulStat strong{display:block;font-size:1.3rem;color:#174e95}.seoulStep{background:#fff;padding:12px;border-radius:11px;border:1px solid #d9e5f3;margin:8px 0}.seoulActions{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}@media(max-width:620px){.seoulStats{grid-template-columns:1fr 1fr}.seoulStat:last-child{grid-column:span 2}}
+
+/* Модуль «Розділювач грибів» */
+.mushroombox{background:#edf8ee;border:1px solid #cde6d0;border-radius:14px;padding:14px;margin:14px 0}.mushroomMap{width:100%;max-width:760px;display:block;margin:0 auto;background:#fff;border-radius:14px;border:1px solid #cadde9;touch-action:none;user-select:none}.mushroomMap .separator{stroke:#197644;stroke-width:3.5;pointer-events:none}.mushroomMap .exampleSeparator{stroke:#2463eb;stroke-width:4;pointer-events:none}.mushroomMap .handle{fill:#168353;stroke:#fff;stroke-width:3;cursor:grab}.mushroomMap .handle:focus{outline:none;stroke:#ffbb23;stroke-width:5}.mushroomMap .handle.active{fill:#ffcf3a;stroke:#16498a;cursor:grabbing}.mushroomMap .fungi{pointer-events:none}.mushroomMap .fungi.red .cap{fill:#e63a67}.mushroomMap .fungi.brown .cap{fill:#875b43}.mushroomMap .fungi .stem{fill:#f3e1cb;stroke:#bda998;stroke-width:.7}.mushroomMap .fungi.red .speckle{fill:#fff}.mushroomMap .fungi .shadow{fill:#cdd5d6;opacity:.6}.mushroomActions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}.mushroomCompare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mushroomCompare>div{background:white;border:1px solid #dbe8f5;border-radius:13px;padding:9px}.mushroomCompare svg{width:100%;height:auto}.mushroomTag{font-size:.85rem;color:#456075}.mushroomStatus{padding:10px 12px;border-radius:10px;background:#f1f6fc;margin-top:12px}@media(max-width:650px){.mushroomCompare{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap"><span class="tag">🦫 ІНТЕРАКТИВНИЙ ТРЕНАЖЕР</span><h1>Конкурс «Бобер»<br>Тренажер задач</h1><p>7–11 класи · інструкція для рядка · графи · перетворення зображень · самоперевірка</p></div></header>
+<main class="wrap">
+<nav class="panel" style="margin-top:0" aria-label="Розділи тренажера"><div class="controls"><a class="btn secondary" href="#work">⬜ Рядки</a><a class="btn secondary" href="#islandSection">🏝️ Острів</a><a class="btn secondary" href="#animationSection">🎞️ Анімація</a><a class="btn secondary" href="#lampsSection">💡 Світильники</a><a class="btn secondary" href="#seoulSection">🗺️ Сеул</a><a class="btn secondary" href="#mushroomSection">🍄 Гриби</a></div></nav>
+<div class="top">
+<section class="panel"><h2>🎯 Ваш прогрес</h2><div><span class="counter" id="progressCount">0 / 11</span> завдань виконано</div><div class="bar"><div id="progressBar"></div></div><p class="small">Кожне завдання можна виконувати багато разів. Результат зберігається у браузері на цьому пристрої.</p><button class="btn ghost" id="resetAll" type="button">Скинути весь прогрес</button></section>
+<section class="panel"><h2>📘 Правила</h2><p><strong>W</strong> — усі клітинки поточної ділянки білі.<br><strong>B</strong> — усі клітинки поточної ділянки чорні.<br><strong>X</strong> — поділити поточну ділянку навпіл; виконати інструкцію спочатку для лівої, потім для правої частини.</p><div class="rule">Спочатку працюйте самостійно. Розв’язання стане доступним лише після <strong>3 перевірок</strong> кожного завдання.</div></section>
+</div>
+<section class="panel"><h2>🧩 Вибір завдання</h2><div class="levels" id="levels"><button class="btn secondary active" data-level="all">Усі (11)</button><button class="btn secondary" data-level="1">🟢 Початківець</button><button class="btn secondary" data-level="2">🔵 Дослідник</button><button class="btn secondary" data-level="3">🟣 Експерт</button></div><div class="tasklist" id="taskList"></div></section>
+<section class="panel" id="work"><div class="workhead"><h2 id="taskTitle">Завдання №1</h2><span class="tag" id="levelLabel">Початківець</span></div><p class="small">Виконайте інструкцію. Натисніть на клітинку, щоб перемкнути білий/чорний колір.</p><div class="instruction" id="instruction"></div><div class="cells" id="studentCells" role="group" aria-label="Клітинки для розфарбування"></div><div class="controls"><button class="btn primary" id="check">✓ Перевірити</button><button class="btn secondary" id="clear">↻ Очистити рядок</button><span class="tip" id="tryCount">Перевірок: 0</span></div><div id="feedback" class="feedback" aria-live="polite"></div><div class="bottomNav"><button class="btn ghost" id="prev">← Попереднє</button><button class="btn ghost" id="next">Наступне →</button></div></section>
+<section class="panel"><h2>🔐 Самоперевірка після декількох спроб</h2><div id="locked" class="lock"><strong>Розбір поки що закритий.</strong><p class="small">Після трьох натискань «Перевірити» для цього завдання можна відкрити дерево виконання, покрокове розфарбування і правильний результат. Навіть після першої правильної спроби розбір відкриється лише після третьої перевірки.</p><div class="dots" id="attemptDots"><span></span><span></span><span></span></div><span id="remaining">Залишилося 3 перевірки</span></div><div id="unlocked" class="hidden"><p class="small">Розбір доступний, але прихований, доки ви самі його не відкриєте.</p><button class="btn primary" id="toggleReveal">📖 Відкрити розбір</button><div id="solution" class="hidden"><div class="tabs"><button class="btn secondary active" data-tab="tree">🌳 Дерево виконання</button><button class="btn secondary" data-tab="steps">▶ Покроково</button><button class="btn secondary" data-tab="result">⬛ Результат</button></div><div id="treeTab"><p class="small">Схема генерується автоматично з обраної інструкції. Кожний X має ліву та праву гілки.</p><div class="treescroll"><svg class="tree" id="treeSvg" role="img" aria-label="Дерево виконання інструкції" xmlns="http://www.w3.org/2000/svg"></svg></div></div><div id="stepsTab" class="hidden"><div class="stepper"><strong id="stepTitle"></strong><div class="cells static" id="stepCells"></div><p id="stepDesc"></p><div class="controls"><button class="btn secondary" id="stepBack">← Назад</button><button class="btn primary" id="stepForward">Далі →</button><span id="stepIndex" class="small"></span></div></div></div><div id="resultTab" class="hidden"><h3>Правильне розфарбування</h3><div class="cells static" id="resultCells"></div><p><strong id="resultText"></strong></p><p class="small">W — біла клітинка, B — чорна клітинка.</p></div></div></div></section>
+<section class="panel" id="islandSection">
+  <div class="workhead"><h2>🏝️ Острів бобрів — графи та найкоротші шляхи</h2><span class="tag">8–9 класи · Бобер</span></div>
+  <p>На острові 18 поселень, з’єднаних каналами. За одну добу повідомлення переходить до сусіднього поселення. Визначте поселення, що отримає повідомлення <strong>найпізніше</strong>, і побудуйте до нього <strong>найкоротший шлях</strong>.</p>
+  <p class="small">Перше завдання відтворює задачу «Острів бобрів» від 21 листопада 2026 року за наданими знімками; інші — авторські тренувальні варіанти на тій самій схемі каналів.</p>
+  <div class="levels" id="islandTasks" aria-label="Вибір острова"></div>
+  <div class="islandQuestion" id="islandQuestion"></div>
+  <div class="islandMapScroll"><svg id="islandMap" viewBox="0 0 750 500" role="img" aria-label="Інтерактивна карта острова з 18 поселеннями та каналами"></svg></div>
+  <div class="islandToolbar"><div>Обраний шлях: <strong id="islandPath">J</strong></div><div>Днів у дорозі: <strong id="islandDays">0</strong></div></div>
+  <p class="small" id="islandGuidance">Натисніть сусіднє поселення, щоб продовжити маршрут. Повторно натисніть на останнє поселення, щоб скасувати крок.</p>
+  <div class="controls"><button class="btn primary" id="islandCheck">✓ Перевірити маршрут</button><button class="btn secondary" id="islandUndo">↶ Крок назад</button><button class="btn ghost" id="islandClear">↻ Спочатку</button><span class="tip" id="islandTries">Перевірок: 0</span></div>
+  <div id="islandFeedback" class="feedback" aria-live="polite"></div>
+  <div class="sep"></div>
+  <h3>🔐 Пояснення після трьох перевірок</h3>
+  <div id="islandLocked" class="lock"><p class="small">Спочатку зробіть три перевірки цього завдання. Навіть якщо відповідь правильна з першого разу, карта розв'язку відкриється лише після третьої перевірки.</p><div class="dots" id="islandDots"></div><div id="islandRemaining"></div></div>
+  <div id="islandUnlocked" class="hidden"><button class="btn primary" id="islandReveal">📖 Показати пояснення й маршрут</button><div id="islandSolution" class="hidden"><div class="tabs"><button class="btn secondary active" data-island-tab="layers">📅 Поширення по днях</button><button class="btn secondary" data-island-tab="route">🧭 Найкоротший шлях</button></div><div class="stepper" id="islandExplanation"></div></div></div>
+</section>
+
+<section class="panel" id="animationSection">
+  <div class="workhead"><h2>🎞️ Анімація — перетворення зображень</h2><span class="tag">7–11 класи · Бобер</span></div>
+  <p>Бобрик запрограмував дві операції: <strong>Д</strong> — дзеркальне відображення, <strong>П</strong> — поворот на 90° за годинниковою стрілкою. Складіть програму з операцій, щоб із початкового зображення отримати потрібне.</p>
+  <p class="small">Як і в інших розділах тренажера, пояснення та правильні програми відкриваються лише після <strong>трьох перевірок</strong> конкретного завдання.</p>
+  <div class="animTaskButtons" id="animTasks"></div>
+  <div class="animQuestion" id="animQuestion"></div>
+  <div class="animGrid">
+    <div class="animCard">
+      <h4>Початкове</h4>
+      <div id="animStart"></div>
+    </div>
+    <div class="animArrow">→</div>
+    <div class="animCard">
+      <h4>Потрібне</h4>
+      <div id="animTarget"></div>
+    </div>
+  </div>
+  <div class="animCard">
+    <h4>Ваш результат</h4>
+    <div id="animCurrent"></div>
+    <p class="small">Попередній перегляд оновлюється після кожного доданого символу.</p>
+  </div>
+  <div class="programWrap">
+    <strong>Ваша програма</strong>
+    <div class="programSlots" id="animSlots"></div>
+    <div class="opbar">
+      <button class="btn primary opBtn" id="animAddD" type="button">Д</button>
+      <button class="btn primary opBtn" id="animAddP" type="button">П</button>
+      <button class="btn secondary" id="animUndo" type="button">↶ Прибрати останню</button>
+      <button class="btn ghost" id="animClear" type="button">↻ Очистити</button>
+      <span class="tip" id="animTryCount">Перевірок: 0</span>
+    </div>
+    <div class="legend">
+      <span><strong>Д</strong> — дзеркально</span>
+      <span><strong>П</strong> — поворот на 90° за годинниковою стрілкою</span>
+      <span id="animLengthInfo">Довжина програми: 0</span>
+    </div>
+  </div>
+  <div class="controls"><button class="btn primary" id="animCheck">✓ Перевірити програму</button></div>
+  <div id="animFeedback" class="feedback" aria-live="polite"></div>
+  <div class="sep"></div>
+  <h3>🔐 Пояснення після трьох перевірок</h3>
+  <div id="animLocked" class="lock"><p class="small">Зробіть три перевірки цього завдання. Після цього можна буде переглянути правильні програми та покрокове застосування операцій.</p><div class="dots" id="animDots"></div><div id="animRemaining"></div></div>
+  <div id="animUnlocked" class="hidden">
+    <button class="btn primary" id="animReveal">📖 Показати пояснення</button>
+    <div id="animSolution" class="hidden">
+      <div class="tabs">
+        <button class="btn secondary active" data-anim-tab="programs">🧩 Правильні програми</button>
+        <button class="btn secondary" data-anim-tab="steps">▶ Покроково</button>
+      </div>
+      <div class="animTabsCard" id="animProgramsTab"></div>
+      <div class="animTabsCard hidden" id="animStepsTab"></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="lampsSection">
+ <div class="workhead"><h2>💡 Світильники Софії — логічні схеми</h2><span class="tag">4–7 класи · Бобер</span></div>
+ <p>Є три форми світильників: <strong>круглі</strong> (1–5), <strong>квадратні</strong> та <strong>п'ятикутні</strong> (6–15). Два з'єднані лінією світильники називаються сусідами. Перші п'ять задаються умовою, а решта працюють автоматично.</p>
+ <div class="rule"><strong>Квадратний</strong> світить, тільки коли світять обидва його сусіди. <strong>П'ятикутний</strong> світить, тільки коли світить рівно один із двох сусідів. Стани обчислюємо послідовно за номерами.</div>
+ <p class="small">Перша задача — за умовою від 19 листопада 2026 року. Наступні — нові навчальні варіанти на тій самій схемі.</p>
+ <div id="lampTasks" class="levels" aria-label="Вибір задачі про світильники"></div>
+ <div id="lampQuestion" class="islandQuestion"></div>
+ <div class="lampsStatus"><span>🟡 Світить</span><span>🔴 Вимкнений початковий</span><span>⚪ Вимкнений автоматичний</span></div>
+ <svg id="lampMap" class="lamps-map" viewBox="0 0 560 540" aria-label="Схема п'ятнадцяти світильників, натискайте на номери 6–15" role="group"></svg>
+ <p class="small">Натискайте на світильники <strong>6–15</strong> на схемі або використовуйте кнопки нижче. Круглі 1–5 у кожному завданні вже встановлено.</p>
+ <div class="lampList" id="lampChoices"></div>
+ <div class="controls" style="margin-top:14px"><button type="button" class="btn primary" id="lampCheck">✓ Перевірити світильники</button><button type="button" class="btn secondary" id="lampReset">↻ Очистити відповідь</button><span class="tip" id="lampTries">Перевірок: 0</span></div>
+ <div id="lampFeedback" class="feedback" aria-live="polite"></div>
+ <div class="sep"></div>
+ <h3>🔐 Пояснення після трьох перевірок</h3>
+ <div class="lock" id="lampLocked"><p class="small">Спочатку перевірте відповідь тричі. Правильні стани й пояснення кожного світильника до цього приховані.</p><div class="dots" id="lampDots"></div><div id="lampRemaining"></div></div>
+ <div id="lampUnlocked" class="hidden"><button type="button" class="btn primary" id="lampReveal">📖 Показати правильні стани і пояснення</button><div id="lampSolution" class="hidden"><div class="tabs"><button type="button" class="btn secondary active" data-lamp-tab="result">💡 Правильний результат</button><button type="button" class="btn secondary" data-lamp-tab="logic">🧠 Логіка крок за кроком</button></div><div id="lampResult" class="stepper"></div><div id="lampLogic" class="stepper hidden"></div></div></div>
+</section>
+
+<section class="panel" id="seoulSection">
+ <div class="workhead"><h2>🚌 Екскурсія Сеулом — знайди найкращий маршрут</h2><span class="tag">4–11 класи · графи й оптимізація</span></div>
+ <p>Сюзі має автобусну картку з обмеженою кількістю кілометрів. Відвідуйте пам'ятки Сеула, рухаючись лише дорогами на схемі. Число зірочок — популярність місця; <strong>зірочки кожного місця враховуються лише один раз</strong>. Потрібно зібрати <strong>максимум зірочок</strong>, не перевищивши відстань.</p>
+ <p class="small">Перший варіант — задача від 18 листопада 2026 року; п'ять інших — тренувальні варіанти на цій самій карті. Для оригіналу правильний максимум становить 15 зірочок за 10 км.</p>
+ <div class="levels" id="seoulTasks"></div>
+ <div class="islandQuestion" id="seoulQuestion"></div>
+ <div class="seoulMapWrap"><svg class="seoulMap" id="seoulMap" viewBox="0 0 750 530" role="img" aria-label="Карта семи місць Сеула з дорогами, відстанями та зірочками"></svg></div>
+ <p class="small">Натискайте тільки на сусідні місця. Повторне натискання останньої точки скасовує один крок. Повернення до вже відвіданого місця дозволене, але його зірочки вдруге не додаються.</p>
+ <div class="seoulStats"><div class="seoulStat">Пройдено, км<strong id="seoulKm">0</strong></div><div class="seoulStat">Зірочок<strong id="seoulStars">0</strong></div><div class="seoulStat">Ліміт, км<strong id="seoulBudget">10</strong></div></div>
+ <div class="rule">Маршрут: <strong id="seoulPath"></strong></div>
+ <div class="seoulActions"><button class="btn primary" id="seoulCheck">✓ Перевірити маршрут</button><button class="btn secondary" id="seoulUndo">↶ Крок назад</button><button class="btn ghost" id="seoulClear">↻ Почати спочатку</button><span class="tip" id="seoulAttempts">Перевірок: 0</span></div>
+ <div id="seoulFeedback" class="feedback" aria-live="polite"></div>
+ <div class="sep"></div><h3>🔐 Розв’язання після трьох перевірок</h3>
+ <div id="seoulLocked" class="lock"><p>Маршрут, що збирає найбільше зірочок, і порівняння варіантів відкриються лише після трьох перевірок <strong>цього завдання</strong>.</p><div class="dots" id="seoulDots"></div><span id="seoulRemaining"></span></div>
+ <div id="seoulUnlocked" class="hidden"><button class="btn primary" id="seoulReveal">📖 Відкрити пояснення</button><div id="seoulSolution" class="hidden"><div class="tabs"><button class="btn secondary active" data-seoul-tab="route">⭐ Оптимальний маршрут</button><button class="btn secondary" data-seoul-tab="compare">📊 Порівняння маршрутів</button></div><div class="stepper" id="seoulExplanation"></div></div></div>
+</section>
+
+<section class="panel" id="mushroomSection">
+ <div class="workhead"><h2>🍄 Розділювач грибів — геометрія та логіка</h2><span class="tag">4–7 класи · Бобер</span></div>
+ <p>На галявині ростуть <strong>червоні та коричневі гриби</strong>. Розділіть галявину <strong>двома прямими</strong> так, щоб у кожній утвореній ділянці були гриби лише одного кольору. Ділянки без грибів допускаються.</p>
+ <p class="small">Перетягуйте зелені маркери на кінцях прямих мишею або пальцем. Перевірка визначає, чи справді жодна ділянка не містить грибів різних кольорів. Розв'язок відкриється тільки після трьох перевірок.</p>
+ <div class="levels" id="mushroomTasks" aria-label="Оберіть задачу про гриби"></div>
+ <div class="mushroombox"><div id="mushroomQuestion" class="islandQuestion"></div>
+ <svg id="mushroomMap" class="mushroomMap" viewBox="0 0 640 430" role="group" aria-label="Інтерактивна галявина з двома рухомими прямими та грибами"></svg>
+ <div class="mushroomActions"><button type="button" class="btn primary" id="mushroomCheck">✓ Перевірити</button><button type="button" class="btn secondary" id="mushroomReset">↻ Скинути прямі</button><span id="mushroomAttempts" class="tip">Перевірок: 0</span></div>
+ <div class="feedback" id="mushroomFeedback" aria-live="polite"></div></div>
+ <h3>🔐 Розв’язання після трьох перевірок</h3>
+ <div class="lock" id="mushroomLocked"><p class="small">Спочатку перевірте свій варіант тричі. Після цього можна за бажанням відкрити приклад правильного розташування прямих та пояснення.</p><div class="dots" id="mushroomDots"></div><p id="mushroomRemaining"></p></div>
+ <div id="mushroomUnlocked" class="hidden"><button type="button" class="btn primary" id="mushroomReveal">📖 Показати приклад розв'язання</button><div id="mushroomSolution" class="hidden stepper" style="margin-top:12px"><h3>Приклад правильного поділу</h3><svg class="mushroomMap" viewBox="0 0 640 430" id="mushroomExample" role="img" aria-label="Приклад двох прямих, що відокремлюють гриби за кольорами"></svg><p>Сині прямі відділяють верхню групу червоних грибів, середню групу коричневих та нижню групу червоних. У жодній ділянці немає грибів двох кольорів.</p><p class="small">Інший правильний поділ також зараховується: програма перевіряє розташування всіх грибів відносно обох прямих, а не збіг із зображеним прикладом.</p></div></div>
+</section>
+
+<div class="footer">Навчальний тренажер за мотивами алгоритмічних задач конкурсу «Бобер». Неофіційний навчальний матеріал для 7–11 класів.</div>
+</main>
+<script>
+'use strict';
+const TASKS=[{code:'XBW',level:1},{code:'XWB',level:1},{code:'XXBWW',level:1},{code:'XXWBXBW',level:2},{code:'XXBWXWB',level:2},{code:'XXXWBBXWB',level:2},{code:'XXBXBWXWB',level:2},{code:'XXBXWBXWB',level:3},{code:'XXXBWXWBXBW',level:3},{code:'XXXWBXBWXWB',level:3},{code:'XXXWBWXBXBW',level:3}];
+const LABELS=['Початківець','Дослідник','Експерт'];
+function parseInstruction(code){let p=0;const nodes=[],leaves=[];function visit(start,length,depth,parent){const token=code[p++];if(!token)throw Error('Неповна інструкція');const id=nodes.length;nodes.push({id,token,start,length,depth,parent});if(token==='X'){if(length<2||length%2)throw Error('Не можна поділити ділянку');visit(start,length/2,depth+1,id);visit(start+length/2,length/2,depth+1,id);}else if(token==='W'||token==='B'){leaves.push({token,start,length});}else throw Error('Невідомий символ');}
+visit(0,8,0,-1);if(p!==code.length)throw Error('Зайві символи');const answer=Array(8).fill(false),steps=[{title:'Початковий стан',description:'Усі 8 клітинок білі.',colors:[...answer]}];for(let k=0;k<leaves.length;k++){const leaf=leaves[k];for(let j=leaf.start;j<leaf.start+leaf.length;j++)answer[j]=leaf.token==='B';steps.push({title:`Крок ${k+1}: команда ${leaf.token}`,description:`Клітинки ${leaf.start+1}–${leaf.start+leaf.length} — ${leaf.token==='B'?'зафарбовуємо чорним':'залишаємо білими'}.`,colors:[...answer]});}return{nodes,leaves,answer,steps};}
+TASKS.forEach(t=>t.parsed=parseInstruction(t.code));
+const fresh=()=>({colors:Array(8).fill(false),attempts:0,solved:false});
+let records=TASKS.map(fresh);try{const cached=JSON.parse(localStorage.getItem('bober8_v3')||'null');if(Array.isArray(cached)&&cached.length===TASKS.length){records=cached.map((v)=>({colors:Array.isArray(v.colors)&&v.colors.length===8?v.colors.map(Boolean):Array(8).fill(false),attempts:Math.max(0,Number(v.attempts)||0),solved:!!v.solved}));}}catch(e){}
+let selected=0,filter='all',reveal=false,step=0,tab='tree';
+const $=s=>document.querySelector(s);const $$=s=>Array.from(document.querySelectorAll(s));
+function save(){try{localStorage.setItem('bober8_v3',JSON.stringify(records));}catch(e){}}
+function makeCells(el,colors,editable){el.innerHTML='';colors.forEach((black,i)=>{const b=document.createElement(editable?'button':'div');b.className='cell'+(black?' black':'');b.textContent=i+1;if(editable){b.type='button';b.setAttribute('aria-label',`Клітинка ${i+1}: ${black?'чорна':'біла'}. Змінити колір`);b.setAttribute('aria-pressed',String(black));b.addEventListener('click',()=>{records[selected].colors[i]=!records[selected].colors[i];save();drawCells();$('#feedback').textContent='';$('#feedback').className='feedback';});}el.appendChild(b);});}
+function drawCells(){makeCells($('#studentCells'),records[selected].colors,true)}
+function showFeedback(message,kind){const el=$('#feedback');el.textContent=message;el.className='feedback '+kind;}
+function renderNav(){const list=$('#taskList');list.innerHTML='';TASKS.forEach((t,i)=>{if(filter!=='all'&&String(t.level)!==filter)return;const b=document.createElement('button');b.type='button';b.className='task'+(i===selected?' selected':'')+(records[i].solved?' done':'');b.innerHTML=`№ ${i+1}<small>${LABELS[t.level-1]}</small>`;b.title=t.code;b.onclick=()=>select(i);list.appendChild(b);});$$('[data-level]').forEach(b=>b.classList.toggle('active',b.dataset.level===filter));}
+function updateProgress(){const count=records.filter(r=>r.solved).length;$('#progressCount').textContent=`${count} / ${TASKS.length}`;$('#progressBar').style.width=`${count/TASKS.length*100}%`;}
+function select(i){if(i<0||i>=TASKS.length)return;selected=i;reveal=false;step=0;tab='tree';render();}
+function render(){const t=TASKS[selected],rec=records[selected];$('#taskTitle').textContent=`Завдання №${selected+1}`;$('#levelLabel').textContent=LABELS[t.level-1];$('#instruction').textContent=t.code;$('#tryCount').textContent=`Перевірок: ${rec.attempts}`;$('#feedback').textContent='';$('#feedback').className='feedback';$('#prev').disabled=selected===0;$('#next').disabled=selected===TASKS.length-1;drawCells();renderNav();updateProgress();drawLock();}
+function drawLock(){const rec=records[selected],ok=rec.attempts>=3;$('#locked').classList.toggle('hidden',ok);$('#unlocked').classList.toggle('hidden',!ok);$('#attemptDots').innerHTML=[0,1,2].map(i=>`<span class="${i<rec.attempts?'on':''}"></span>`).join('');const n=Math.max(0,3-rec.attempts);$('#remaining').textContent=n===1?'Залишилася 1 перевірка':`Залишилося ${n} перевірки`;$('#solution').classList.toggle('hidden',!reveal||!ok);$('#toggleReveal').textContent=reveal?'🙈 Приховати розбір':'📖 Відкрити розбір';if(ok&&reveal)renderSolution();}
+function renderSolution(){$$('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['tree','steps','result'].forEach(id=>$('#'+id+'Tab').classList.toggle('hidden',id!==tab));if(tab==='tree')drawTree();if(tab==='steps')drawSteps();if(tab==='result'){const a=TASKS[selected].parsed.answer;makeCells($('#resultCells'),a,false);$('#resultText').textContent=a.map(c=>c?'B':'W').join('');}}
+function drawSteps(){const s=TASKS[selected].parsed.steps[step];$('#stepTitle').textContent=s.title;$('#stepDesc').textContent=s.description;makeCells($('#stepCells'),s.colors,false);$('#stepBack').disabled=step===0;$('#stepForward').disabled=step===TASKS[selected].parsed.steps.length-1;$('#stepIndex').textContent=`${step+1} / ${TASKS[selected].parsed.steps.length}`;}
+function drawTree(){const nodes=TASKS[selected].parsed.nodes,svg=$('#treeSvg');const maxDepth=Math.max(...nodes.map(n=>n.depth)),height=75+maxDepth*80,width=720;svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.innerHTML='';const ns='http://www.w3.org/2000/svg';const create=(name,attrs,parent=svg)=>{const el=document.createElementNS(ns,name);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));parent.appendChild(el);return el};const x=n=>36+(n.start+n.length/2)/8*(width-72),y=n=>33+n.depth*80;nodes.forEach(n=>{if(n.parent<0)return;const p=nodes[n.parent];create('line',{x1:x(p),y1:y(p)+20,x2:x(n),y2:y(n)-20});});nodes.forEach(n=>{const g=create('g',{class:`node ${n.token}`});create('circle',{cx:x(n),cy:y(n),r:21},g);const t=create('text',{x:x(n),y:y(n)+6,class:'main'},g);t.textContent=n.token;const sub=create('text',{x:x(n),y:y(n)+37,class:'sub'},g);sub.textContent=`${n.start+1}–${n.start+n.length}`;});}
+$('#check').onclick=()=>{const rec=records[selected],ans=TASKS[selected].parsed.answer;rec.attempts++;const good=rec.colors.every((v,i)=>v===ans[i]);if(good)rec.solved=true;save();$('#tryCount').textContent=`Перевірок: ${rec.attempts}`;showFeedback(good?'✅ Правильно! Алгоритм виконано.':'🔎 Поки що є помилка. Змініть кольори та перевірте ще раз.',good?'good':'bad');renderNav();updateProgress();drawLock();};
+$('#clear').onclick=()=>{records[selected].colors=Array(8).fill(false);save();drawCells();$('#feedback').textContent='';$('#feedback').className='feedback';};
+$('#prev').onclick=()=>select(selected-1);$('#next').onclick=()=>select(selected+1);
+$$('[data-level]').forEach(b=>b.onclick=()=>{filter=b.dataset.level;const first=TASKS.findIndex(t=>filter==='all'||String(t.level)===filter);select(first);});
+$('#toggleReveal').onclick=()=>{reveal=!reveal;step=0;drawLock();};
+$$('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;renderSolution();});
+$('#stepBack').onclick=()=>{step=Math.max(0,step-1);drawSteps();};$('#stepForward').onclick=()=>{step=Math.min(TASKS[selected].parsed.steps.length-1,step+1);drawSteps();};
+$('#resetAll').onclick=()=>{if(!confirm('Скинути всі відповіді, спроби та результати?'))return;records=TASKS.map(fresh);save();select(0);};
+render();
+</script>
+
+<script>
+(()=>{'use strict';
+// Координати — адаптоване креслення із наданого зображення. Ребра — канали, що сполучають поселення.
+const POS={Q:[115,55],F:[252,92],K:[399,110],P:[568,120],C:[190,182],H:[327,194],N:[494,201],A:[122,258],E:[265,269],J:[410,270],O:[585,286],B:[150,362],G:[332,363],M:[515,368],D:[277,445],I:[446,447],L:[599,447],R:[693,406]};
+const EDGES=['Q-A','Q-F','A-B','B-E','B-D','C-E','C-F','E-J','G-J','H-J','M-J','H-K','H-N','N-M','K-F','K-P','P-O','O-M','O-L','M-L','L-I','I-G','G-D','L-R'];
+// Explicitly add the edges visible in the supplied map that complete the second-day layer.
+EDGES.push('E-C','G-I');
+const ADJ=Object.fromEntries(Object.keys(POS).map(k=>[k,[]]));
+const unique=[];for(const raw of EDGES){const [a,b]=raw.split('-');if(!ADJ[a]||!ADJ[b]||a===b)throw Error('Invalid edge '+raw);const key=[a,b].sort().join('-');if(unique.includes(key))continue;unique.push(key);ADJ[a].push(b);ADJ[b].push(a);}
+function bfs(start){const dist={[start]:0},prev={},queue=[start];for(let i=0;i<queue.length;i++){const n=queue[i];for(const next of ADJ[n]){if(dist[next]!==undefined)continue;dist[next]=dist[n]+1;prev[next]=n;queue.push(next);}}return{dist,prev};}
+const variants=[{start:'J',title:'Оригінальна задача: повідомлення з J'},{start:'A',title:'Повідомлення з A'},{start:'P',title:'Повідомлення з P'},{start:'R',title:'Повідомлення з R'},{start:'B',title:'Повідомлення з B'},{start:'Q',title:'Повідомлення з Q'}];
+const freshest=()=>({path:[],attempts:0,solved:false});
+let records=variants.map(v=>({...freshest(),path:[v.start]}));
+try{const cache=JSON.parse(localStorage.getItem('bober_island_v1')||'null');if(Array.isArray(cache)&&cache.length===variants.length)records=cache.map((r,i)=>({path:Array.isArray(r.path)&&r.path[0]===variants[i].start?r.path:[variants[i].start],attempts:Math.max(0,Math.floor(Number(r.attempts)||0)),solved:!!r.solved}));}catch(e){}
+let selected=0,revealed=false,tab='layers',displaySolution=false;
+const el=id=>document.getElementById(id);
+const remember=()=>{try{localStorage.setItem('bober_island_v1',JSON.stringify(records));}catch(e){}};
+function targetInfo(start){const {dist,prev}=bfs(start),max=Math.max(...Object.values(dist));const farthest=Object.keys(dist).filter(n=>dist[n]===max).sort();const destination=farthest[0];let path=[destination];while(path[0]!==start)path.unshift(prev[path[0]]);return {dist,prev,max,farthest,destination,path};}
+function display(){const v=variants[selected],r=records[selected];if(!Array.isArray(r.path)||r.path[0]!==v.start)r.path=[v.start];el('islandQuestion').textContent=`Завдання ${selected+1}. ${v.title}. Знайдіть поселення, до якого звістка дійде найпізніше, і прокладіть від ${v.start} найкоротший шлях до нього. Натискайте на сусідні поселення.`;
+el('islandPath').textContent=r.path.join(' → ');el('islandDays').textContent=r.path.length-1;el('islandTries').textContent=`Перевірок: ${r.attempts}`;
+const buttons=el('islandTasks');buttons.innerHTML='';variants.forEach((variant,i)=>{const b=document.createElement('button');b.className='btn secondary'+(i===selected?' active':'');b.textContent=`${i+1}. З ${variant.start}`+(records[i].solved?' ✓':'');b.type='button';b.style.background=i===selected?'#174e95':'';b.style.color=i===selected?'white':'';b.onclick=()=>{selected=i;revealed=false;tab='layers';displaySolution=false;el('islandFeedback').className='feedback';el('islandFeedback').textContent='';display()};buttons.appendChild(b)});
+el('islandUndo').disabled=r.path.length<2;const open=r.attempts>=3;el('islandLocked').classList.toggle('hidden',open);el('islandUnlocked').classList.toggle('hidden',!open);el('islandSolution').classList.toggle('hidden',!open||!revealed);el('islandReveal').textContent=revealed?'🙈 Приховати пояснення':'📖 Показати пояснення й маршрут';el('islandDots').innerHTML=[0,1,2].map(i=>`<span class="${r.attempts>i?'on':''}"></span>`).join('');el('islandRemaining').textContent=`Залишилося перевірок: ${Math.max(0,3-r.attempts)}`;
+if(open&&revealed)renderExplanation();drawMap();}
+function drawMap(){const svg=el('islandMap'),v=variants[selected],r=records[selected],info=targetInfo(v.start),ns='http://www.w3.org/2000/svg';svg.replaceChildren();const mk=(tag,attrs,parent=svg)=>{const node=document.createElementNS(ns,tag);for(const [k,val]of Object.entries(attrs))node.setAttribute(k,String(val));parent.appendChild(node);return node};mk('path',{class:'ground',d:'M52 130 Q95 25 235 35 Q396 25 610 85 Q700 115 710 240 L722 419 Q660 479 481 486 L220 480 Q72 454 55 340 Q20 248 52 130 Z'});
+for(const key of unique){const [a,b]=key.split('-');const routeKey=arr=>arr.some((n,i)=>i>0&&[arr[i-1],n].sort().join('-')===key);const active=routeKey(r.path),sol=displaySolution&&routeKey(info.path);mk('line',{class:'channel'+(sol?' solution':active?' active':''),x1:POS[a][0],y1:POS[a][1],x2:POS[b][0],y2:POS[b][1]});}
+for(const [name,[x,y]] of Object.entries(POS)){const chosen=r.path.includes(name),start=name===v.start,sol=displaySolution&&info.path.includes(name);const g=mk('g',{class:'village'+(chosen?' selected':'')+(start?' start':'')+(sol?' solution':''),role:'button',tabindex:0,'aria-label':`Поселення ${name}. ${ADJ[name].length} сусідів`});mk('circle',{class:'halo',cx:x,cy:y,r:29},g);mk('rect',{class:'house',x:x-20,y:y-15,width:40,height:41,rx:6},g);mk('path',{class:'roof',d:`M${x-24} ${y-13} L${x} ${y-33} L${x+24} ${y-13} Z`},g);const t=mk('text',{class:'letter',x,y:y+14},g);t.textContent=name;g.onclick=()=>chooseNode(name);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();chooseNode(name)}};}
+}
+function chooseNode(name){const r=records[selected],last=r.path.at(-1);if(last===name&&r.path.length>1)r.path.pop();else if(ADJ[last].includes(name)){r.path.push(name)}else{const f=el('islandFeedback');f.className='feedback bad';f.textContent=`Між ${last} та ${name} немає прямого каналу. Оберіть сусіднє поселення.`;return}remember();el('islandFeedback').className='feedback';el('islandFeedback').textContent='';display()}
+function renderExplanation(){const v=variants[selected],info=targetInfo(v.start),div=el('islandExplanation');document.querySelectorAll('[data-island-tab]').forEach(b=>b.classList.toggle('active',b.dataset.islandTab===tab));displaySolution=tab==='route';if(tab==='layers'){div.replaceChildren();const title=document.createElement('h3');title.textContent=`Поширення звістки з ${v.start} за днями`;div.append(title);for(let d=0;d<=info.max;d++){const villages=Object.keys(info.dist).filter(k=>info.dist[k]===d).sort();const row=document.createElement('div');row.className='islandLayer';const day=document.createElement('span');day.className='islandDay';day.textContent=`${d}-й день`;const tx=document.createElement('span');tx.textContent=villages.join(', ');row.append(day,tx);div.append(row)}const p=document.createElement('p');p.innerHTML=`<strong>Найпізніше повідомлення надходить через ${info.max} дні(в).</strong> Найвіддаленіші поселення: ${info.farthest.join(', ')}.`;div.append(p)}else{div.replaceChildren();const p=document.createElement('p');p.innerHTML=`<strong>Найвіддаленіше поселення: ${info.farthest.join(', ')}.</strong><br>Найменша кількість переходів: <strong>${info.max}</strong>.<br>Приклад найкоротшого маршруту: <strong>${info.path.join(' → ')}</strong>.`;div.append(p);const note=document.createElement('p');note.textContent='Для перевірки застосовано пошук у ширину (BFS): за один крок алгоритм знаходить усіх сусідів поточних поселень. Найбільша відстань від початку визначає останній день отримання звістки.';div.append(note)}drawMap();}
+el('islandCheck').onclick=()=>{const r=records[selected],info=targetInfo(variants[selected].start),end=r.path.at(-1),length=r.path.length-1,correct=info.farthest.includes(end)&&length===info.max;r.attempts++;if(correct)r.solved=true;remember();const f=el('islandFeedback');f.className='feedback '+(correct?'good':'bad');f.textContent=correct?'✅ Правильно! До найвіддаленішого поселення знайдено найкоротший шлях.':'🔎 Ще не збігається. Перевірте кінцеве поселення та кількість днів. Спробуйте інший шлях.';display()};
+el('islandUndo').onclick=()=>{const r=records[selected];if(r.path.length>1){r.path.pop();remember();display()}};
+el('islandClear').onclick=()=>{records[selected].path=[variants[selected].start];remember();el('islandFeedback').className='feedback';el('islandFeedback').textContent='';display()};
+el('islandReveal').onclick=()=>{revealed=!revealed;display();};
+document.querySelectorAll('[data-island-tab]').forEach(btn=>btn.onclick=()=>{tab=btn.dataset.islandTab;renderExplanation();});
+// Integrity checks: the original screenshot states day 1 E,G,H,M and last Q on day 4.
+const origin=targetInfo('J');if(origin.max!==4||origin.farthest.join(',')!=='Q'||Object.keys(origin.dist).filter(n=>origin.dist[n]===1).sort().join(',')!=='E,G,H,M'){console.warn('Island graph validation failed. Review digitization.');}
+display();
+})();
+</script>
+
+<script>
+(()=>{'use strict';
+const ANIM_TASKS=[
+ {title:'Оригінальна задача «Анімація»', length:4, start:'П', end:null, targetFrom:['Д','П'], note:'Складіть програму рівно з чотирьох операцій, яка починається з П і дає потрібне зображення.'},
+ {title:'Тренувальне завдання 2', length:3, start:null, end:'Д', targetFrom:['П','Д'], note:'Складіть програму з трьох операцій, яка закінчується на Д.'},
+ {title:'Тренувальне завдання 3', length:2, start:null, end:null, targetFrom:['П','П'], note:'Складіть найкоротшу програму рівно з двох операцій.'},
+ {title:'Тренувальне завдання 4', length:5, start:'Д', end:null, targetFrom:['П'], note:'Складіть програму з п’яти операцій, яка починається з Д.'},
+ {title:'Тренувальне завдання 5', length:4, start:null, end:'П', targetFrom:['Д','Д','П'], note:'Складіть програму рівно з чотирьох операцій, що закінчується на П.'}
+];
+const ID=[1,0,0,1], OPS={'Д':[-1,0,0,1],'П':[0,1,-1,0]};
+const mul=(A,B)=>[A[0]*B[0]+A[2]*B[1],A[1]*B[0]+A[3]*B[1],A[0]*B[2]+A[2]*B[3],A[1]*B[2]+A[3]*B[3]];
+const same=(A,B)=>A.every((v,i)=>v===B[i]);
+const applySeq=seq=>seq.reduce((m,op)=>mul(OPS[op],m),ID.slice());
+const enumerate=(length,start,end)=>{const out=[];const rec=(seq)=>{if(seq.length===length){if(start&&seq[0]!==start)return;if(end&&seq[seq.length-1]!==end)return;out.push(seq.slice());return}for(const op of ['Д','П']){seq.push(op);rec(seq);seq.pop();}};rec([]);return out};
+ANIM_TASKS.forEach(t=>{t.target=applySeq(t.targetFrom);t.solutions=enumerate(t.length,t.start,t.end).filter(seq=>same(applySeq(seq),t.target));if(!t.solutions.length)throw Error('No solutions for animation task '+t.title);});
+const fresh=()=>({program:[],attempts:0,solved:false});
+let records=ANIM_TASKS.map(fresh);
+try{const cache=JSON.parse(localStorage.getItem('bober_anim_v1')||'null');if(Array.isArray(cache)&&cache.length===ANIM_TASKS.length){records=cache.map(r=>({program:Array.isArray(r.program)?r.program.filter(x=>x==='Д'||x==='П'):[],attempts:Math.max(0,Math.floor(Number(r.attempts)||0)),solved:!!r.solved}));}}catch(e){}
+let selected=0,reveal=false,tab='programs';
+const $=s=>document.querySelector(s); const $$=s=>Array.from(document.querySelectorAll(s));
+const save=()=>{try{localStorage.setItem('bober_anim_v1',JSON.stringify(records));}catch(e){}};
+function matrixToSvg(m,cx=90,cy=66){return `translate(${cx} ${cy}) matrix(${m[0]} ${m[1]} ${m[2]} ${m[3]} 0 0) translate(${-cx} ${-cy})`; }
+function beaverSvg(matrix){return `<svg class="animSvg" viewBox="0 0 180 132" role="img" aria-label="Зображення бобра в кріслі"><rect x="0" y="0" width="180" height="132" rx="12" fill="#fbfdff"/><g transform="${matrixToSvg(matrix)}"><g><path d="M27 92 q-4 -18 10 -30 v-28 q0 -12 13 -12 h13 q8 0 11 6 l2 7 q6 0 12 6 q6 6 6 16 v18 q10 1 18 6 l7 -18 q4 -9 13 -9 q8 0 11 7 q3 7 -1 14 l-9 18 q8 10 8 20 q0 8 -6 13 q-6 5 -16 5 H49 q-10 0 -16 -6 q-6 -6 -6 -13 z" fill="#f1e0bc" stroke="#8b5f2a" stroke-width="2.5"/><path d="M112 44 q12 8 17 24 q-13 -2 -21 9 q-11 14 2 31 q-20 -8 -27 -24 q-7 -17 -2 -31 q8 -20 31 -9 z" fill="#a95632" stroke="#6d371f" stroke-width="2.2"/><ellipse cx="83" cy="55" rx="22" ry="20" fill="#be6d44" stroke="#6d371f" stroke-width="2.2"/><circle cx="97" cy="44" r="11" fill="#be6d44" stroke="#6d371f" stroke-width="2.2"/><circle cx="101" cy="42" r="2.2" fill="#1c1c1c"/><path d="M107 47 q8 4 8 10" stroke="#6d371f" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="72" y="48" width="18" height="24" rx="2" fill="#50bdd7" stroke="#1b6f82" stroke-width="2" transform="rotate(-15 81 60)"/><line x1="38" y1="89" x2="27" y2="112" stroke="#8b5f2a" stroke-width="3" stroke-linecap="round"/><line x1="76" y1="77" x2="92" y2="100" stroke="#6d371f" stroke-width="3" stroke-linecap="round"/><line x1="98" y1="74" x2="111" y2="100" stroke="#6d371f" stroke-width="3" stroke-linecap="round"/><path d="M28 89 q5 -13 18 -13" stroke="#8b5f2a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M60 21 q4 -8 14 -6" stroke="#6d371f" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M58 24 q2 -8 11 -10" stroke="#6d371f" stroke-width="2" fill="none" stroke-linecap="round"/></g></g></svg>`;}
+function showImage(sel,m){document.querySelector(sel).innerHTML=beaverSvg(m);}
+function currentTask(){return ANIM_TASKS[selected]}
+function currentRecord(){return records[selected]}
+function renderTaskButtons(){const box=$('#animTasks');box.innerHTML='';ANIM_TASKS.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.className='btn secondary'+(i===selected?' active':'');b.textContent=`${i+1}. ${t.title}`+(records[i].solved?' ✓':'');if(i===selected){b.style.background='#174e95';b.style.color='white';}b.onclick=()=>{selected=i;reveal=false;tab='programs';$('#animFeedback').className='feedback';$('#animFeedback').textContent='';renderAnim();};box.appendChild(b);});}
+function slotHtml(content,cls=''){return `<button type="button" class="slot ${cls}" ${content?'data-remove="1"':''}>${content||''}</button>`}
+function renderSlots(){const t=currentTask(),r=currentRecord();const box=$('#animSlots');box.innerHTML='';for(let i=0;i<t.length;i++){const op=r.program[i]||'';box.insertAdjacentHTML('beforeend',slotHtml(op,op?'filled':''));}box.querySelectorAll('[data-remove]').forEach((b,i)=>b.onclick=()=>{r.program.splice(i,1);save();renderSlots();renderCurrent();});$('#animUndo').disabled=r.program.length===0;$('#animAddD').disabled=r.program.length>=t.length;$('#animAddP').disabled=r.program.length>=t.length;$('#animLengthInfo').textContent=`Довжина програми: ${r.program.length} / ${t.length}`;}
+function renderCurrent(){showImage('#animStart',ID);showImage('#animTarget',currentTask().target);showImage('#animCurrent',applySeq(currentRecord().program));}
+function constraintText(t){const parts=[`Рівно ${t.length} операц${t.length===1?'ія':'ії'}`];if(t.start)parts.push(`початок — ${t.start}`);if(t.end)parts.push(`кінець — ${t.end}`);return parts.join(' · ');}
+function renderLock(){const r=currentRecord(),open=r.attempts>=3;$('#animLocked').classList.toggle('hidden',open);$('#animUnlocked').classList.toggle('hidden',!open);$('#animSolution').classList.toggle('hidden',!open||!reveal);$('#animReveal').textContent=reveal?'🙈 Приховати пояснення':'📖 Показати пояснення';$('#animDots').innerHTML=[0,1,2].map(i=>`<span class="${r.attempts>i?'on':''}"></span>`).join('');$('#animRemaining').textContent=`Залишилося перевірок: ${Math.max(0,3-r.attempts)}`;if(open&&reveal)renderExplanation();}
+function renderExplanation(){const t=currentTask(),r=currentRecord();document.querySelectorAll('[data-anim-tab]').forEach(b=>b.classList.toggle('active',b.dataset.animTab===tab));$('#animProgramsTab').classList.toggle('hidden',tab!=='programs');$('#animStepsTab').classList.toggle('hidden',tab!=='steps');if(tab==='programs'){const div=$('#animProgramsTab');const list=t.solutions.map(seq=>`<li><strong>${seq.join(' ')}</strong></li>`).join('');div.innerHTML=`<h3>${t.title}</h3><p class="animNote">${t.note}</p><p><strong>Можливі правильні програми:</strong></p><ol class="solutionList">${list}</ol><p class="animNote">Якщо правильних програм кілька, це означає, що різні послідовності операцій можуть давати однаковий кінцевий результат.</p>`;}else{const example=t.solutions[0];const steps=[[]];for(let i=0;i<example.length;i++)steps.push(example.slice(0,i+1));const cards=steps.map((seq,i)=>`<div class="miniStep"><strong>${i===0?'Початок':`Крок ${i}: ${seq.at(-1)}`}</strong>${beaverSvg(applySeq(seq))}<div class="animNote">${i===0?'Початкове зображення.':`Після програми: ${seq.join(' ')}`}</div></div>`).join('');$('#animStepsTab').innerHTML=`<h3>Покрокове виконання</h3><p class="animNote">Приклад правильної програми: <strong>${example.join(' ')}</strong>.</p><div class="miniSteps">${cards}</div>`;}}
+function renderAnim(){const t=currentTask(),r=currentRecord();renderTaskButtons();$('#animQuestion').innerHTML=`<strong>Завдання ${selected+1}.</strong> ${t.note}<br><span class="small">Умова: ${constraintText(t)}.</span>`;$('#animTryCount').textContent=`Перевірок: ${r.attempts}`;renderSlots();renderCurrent();renderLock();}
+function feedback(text,kind){const f=$('#animFeedback');f.className='feedback '+kind;f.textContent=text;}
+$('#animAddD').onclick=()=>{const r=currentRecord();if(r.program.length<currentTask().length){r.program.push('Д');save();renderSlots();renderCurrent();$('#animFeedback').className='feedback';$('#animFeedback').textContent='';}};
+$('#animAddP').onclick=()=>{const r=currentRecord();if(r.program.length<currentTask().length){r.program.push('П');save();renderSlots();renderCurrent();$('#animFeedback').className='feedback';$('#animFeedback').textContent='';}};
+$('#animUndo').onclick=()=>{const r=currentRecord();r.program.pop();save();renderSlots();renderCurrent();$('#animFeedback').className='feedback';$('#animFeedback').textContent='';};
+$('#animClear').onclick=()=>{currentRecord().program=[];save();renderSlots();renderCurrent();$('#animFeedback').className='feedback';$('#animFeedback').textContent='';};
+$('#animCheck').onclick=()=>{const t=currentTask(),r=currentRecord();r.attempts++;const lenOk=r.program.length===t.length;const startOk=!t.start||r.program[0]===t.start;const endOk=!t.end||r.program[r.program.length-1]===t.end;const transformOk=same(applySeq(r.program),t.target);const ok=lenOk&&startOk&&endOk&&transformOk;if(ok)r.solved=true;save();$('#animTryCount').textContent=`Перевірок: ${r.attempts}`;if(ok){feedback('✅ Правильно! Програма задовольняє умову й дає потрібне зображення.','good');}else if(!lenOk){feedback(`🔎 Поки що не збігається: потрібно використати рівно ${t.length} операції(й).`,'bad');}else if(!startOk||!endOk){feedback('🔎 Зображення може бути правильним, але програма не виконує умову щодо початку або завершення.','bad');}else{feedback('🔎 Поки що отримано інше зображення. Спробуйте іншу послідовність операцій.','bad');}renderLock();renderTaskButtons();};
+$('#animReveal').onclick=()=>{reveal=!reveal;renderLock();};
+document.querySelectorAll('[data-anim-tab]').forEach(btn=>btn.onclick=()=>{tab=btn.dataset.animTab;renderExplanation();});
+renderAnim();
+})();
+</script>
+
+
+<script>
+(()=>{'use strict';
+const pos={1:[280,38],2:[526,190],3:[427,501],4:[134,501],5:[30,190],6:[368,137],7:[428,351],8:[280,463],9:[114,351],10:[192,137],11:[280,203],12:[360,260],13:[330,351],14:[240,351],15:[200,260]};
+const gates={6:{type:'square',a:1,b:2},7:{type:'pentagon',a:2,b:3},8:{type:'pentagon',a:3,b:4},9:{type:'square',a:4,b:5},10:{type:'pentagon',a:1,b:5},11:{type:'square',a:6,b:10},12:{type:'pentagon',a:6,b:7},13:{type:'square',a:7,b:8},14:{type:'pentagon',a:8,b:9},15:{type:'square',a:9,b:10}};
+const variants=[
+ {title:'Оригінальна задача',sources:[1,2,4]},
+ {title:'Варіант 2',sources:[1,3,5]},
+ {title:'Варіант 3',sources:[2,3,4]},
+ {title:'Варіант 4',sources:[1,2,3,4,5]},
+ {title:'Варіант 5',sources:[2,5]},
+ {title:'Варіант 6',sources:[1,4,5]}
+];
+function compute(v){const on={};for(let n=1;n<=5;n++)on[n]=v.sources.includes(n);for(let n=6;n<=15;n++){const g=gates[n],a=on[g.a],b=on[g.b];on[n]=g.type==='square'?(a&&b):(a!==b);}return on}
+variants.forEach(v=>v.answer=compute(v));
+if([6,7,8,10,11,13,14].some(n=>!variants[0].answer[n])||[9,12,15].some(n=>variants[0].answer[n]))throw Error('Невідповідність еталона оригінальної задачі');
+const fresh=()=>({selected:[],attempts:0,solved:false});let records=variants.map(fresh);
+try{const raw=JSON.parse(localStorage.getItem('bober_lamps_v1')||'null');if(Array.isArray(raw)&&raw.length===variants.length)records=raw.map(r=>({selected:Array.isArray(r.selected)?r.selected.filter(x=>Number.isInteger(x)&&x>=6&&x<=15):[],attempts:Math.max(0,Math.floor(Number(r.attempts)||0)),solved:!!r.solved}));}catch(e){}
+let current=0,reveal=false,tab='result';const el=id=>document.getElementById(id);const ns='http://www.w3.org/2000/svg';
+const save=()=>{try{localStorage.setItem('bober_lamps_v1',JSON.stringify(records));}catch(e){}};
+function svg(tag,attrs,parent){const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));parent.appendChild(e);return e}
+function illuminated(n){return n<=5?variants[current].sources.includes(n):records[current].selected.includes(n)}
+function toggle(n){if(n<=5)return;const r=records[current];r.selected=r.selected.includes(n)?r.selected.filter(x=>x!==n):[...r.selected,n];save();el('lampFeedback').textContent='';el('lampFeedback').className='feedback';drawMap();drawChoices()}
+function drawMap(){const root=el('lampMap');root.replaceChildren();for(const [n,g] of Object.entries(gates)){for(const link of [g.a,g.b]){const [x1,y1]=pos[link],[x2,y2]=pos[n];svg('line',{class:'wire',x1,y1,x2,y2},root);}}for(let n=1;n<=15;n++){const [x,y]=pos[n],on=illuminated(n);const type=n<=5?'source': 'auto';const group=svg('g',{class:`light ${type} ${on?'on':'off'} ${n>5&&records[current].selected.includes(n)?'selected':''}`,role:n>5?'button':'img',tabindex:n>5?0:-1,'aria-label':`Світильник ${n}, ${on?'увімкнено':'вимкнено'}${n>5?', натисніть, щоб змінити':''}`},root);if(n<=5)svg('circle',{cx:x,cy:y,r:18},group);else if(gates[n].type==='square')svg('circle',{cx:x,cy:y,r:29},group),svg('rect',{x:x-16,y:y-16,width:32,height:32,rx:3},group);else{svg('circle',{cx:x,cy:y,r:29},group);const coords=Array.from({length:5},(_,i)=>{const angle=-Math.PI/2+i*2*Math.PI/5;return `${x+20*Math.cos(angle)},${y+20*Math.sin(angle)}`}).join(' ');svg('polygon',{points:coords},group);}const t=svg('text',{class:'number',x,y:y+1},group);t.textContent=String(n);if(n>5){group.addEventListener('click',()=>toggle(n));group.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(n)}});}}}
+function drawChoices(){const box=el('lampChoices');box.replaceChildren();for(let n=6;n<=15;n++){const button=document.createElement('button');button.type='button';const on=records[current].selected.includes(n);button.className='lampChoice'+(on?' on':'');button.textContent=n+(on?' 💡':'');button.title=`Світильник ${n}`;button.setAttribute('aria-pressed',String(on));button.onclick=()=>toggle(n);box.appendChild(button)}}
+function drawLock(){const rec=records[current],open=rec.attempts>=3;el('lampLocked').classList.toggle('hidden',open);el('lampUnlocked').classList.toggle('hidden',!open);el('lampSolution').classList.toggle('hidden',!open||!reveal);el('lampReveal').textContent=reveal?'🙈 Приховати пояснення':'📖 Показати правильні стани і пояснення';el('lampDots').innerHTML=[0,1,2].map(i=>`<span class="${rec.attempts>i?'on':''}"></span>`).join('');el('lampRemaining').textContent=`До відкриття: ще ${Math.max(0,3-rec.attempts)} перевірок`;if(open&&reveal)drawExplanation()}
+function drawExplanation(){const t=variants[current];document.querySelectorAll('[data-lamp-tab]').forEach(b=>b.classList.toggle('active',b.dataset.lampTab===tab));el('lampResult').classList.toggle('hidden',tab!=='result');el('lampLogic').classList.toggle('hidden',tab!=='logic');if(tab==='result'){const yes=Object.keys(t.answer).map(Number).filter(n=>n>=6&&t.answer[n]);const no=Object.keys(t.answer).map(Number).filter(n=>n>=6&&!t.answer[n]);el('lampResult').innerHTML=`<h3>Правильна відповідь</h3><p><strong>Світять:</strong> ${yes.join(', ')}.</p><p><strong>Не світять:</strong> ${no.join(', ')}.</p><p class="animNote">Круглі початкові світильники: увімкнені — ${t.sources.join(', ')}.</p>`;}else{const cards=[];for(let n=6;n<=15;n++){const g=gates[n],a=t.answer[g.a],b=t.answer[g.b],on=t.answer[n],type=g.type==='square'?'Квадратний (І)':'П’ятикутний (виключне АБО)';const why=g.type==='square'?(a&&b?'обидва сусіди світять':'не світять обидва сусіди'):a!==b?'світить рівно один сусід':'сусіди мають однаковий стан';cards.push(`<div class="lampStage"><b>${n}. ${type}</b><div>Сусіди ${g.a} (${a?'світить':'вимк.'}) і ${g.b} (${b?'світить':'вимк.'}).</div><small>${why} → <strong>${on?'СВІТИТЬ':'ВИМКНЕНИЙ'}</strong>.</small></div>`)}el('lampLogic').innerHTML=`<h3>Послідовність обчислення: 6 → 15</h3><p class="animNote">Кожний наступний світильник залежить лише від двох із меншими номерами.</p><div class="lampStages">${cards.join('')}</div>`;}}
+function render(){const t=variants[current],r=records[current];const box=el('lampTasks');box.replaceChildren();variants.forEach((v,i)=>{const b=document.createElement('button');b.type='button';b.className='btn secondary';b.textContent=`${i+1}. ${v.title}`+(records[i].solved?' ✓':'');if(i===current){b.style.background='#174e95';b.style.color='white'}b.onclick=()=>{current=i;reveal=false;tab='result';el('lampFeedback').className='feedback';el('lampFeedback').textContent='';render()};box.appendChild(b)});el('lampQuestion').textContent=`Завдання ${current+1}. Софія ввімкнула круглі світильники ${t.sources.join(', ')}. Решта круглих вимкнені. Визначте, які зі світильників 6–15 світитимуть. Натискайте на потрібні світильники.`;el('lampTries').textContent=`Перевірок: ${r.attempts}`;drawMap();drawChoices();drawLock()}
+el('lampCheck').onclick=()=>{const t=variants[current],r=records[current];r.attempts++;const correct=Array.from({length:10},(_,i)=>i+6).every(n=>r.selected.includes(n)===t.answer[n]);if(correct)r.solved=true;save();el('lampTries').textContent=`Перевірок: ${r.attempts}`;const fb=el('lampFeedback');fb.className='feedback '+(correct?'good':'bad');fb.textContent=correct?'✅ Правильно! Усі світильники визначено правильно.':'🔎 Є неточності. Перевірте логіку залежностей і спробуйте ще раз.';drawLock();};
+el('lampReset').onclick=()=>{records[current].selected=[];save();el('lampFeedback').className='feedback';el('lampFeedback').textContent='';drawMap();drawChoices()};
+el('lampReveal').onclick=()=>{reveal=!reveal;drawLock()};document.querySelectorAll('[data-lamp-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.lampTab;drawExplanation()});render();
+})();
+</script>
+
+<script>
+(()=>{'use strict';
+const places={
+ palace:{name:'Королівський палац',stars:0,x:372,y:470},
+ hall:{name:'Мерія',stars:1,x:632,y:383},
+ gate:{name:'Південна брама',stars:4,x:629,y:155},
+ tower:{name:'Вежа Намсан',stars:5,x:375,y:60},
+ market:{name:'Ринок Східної брами',stars:5,x:128,y:175},
+ village:{name:'Народне село',stars:3,x:130,y:379},
+ museum:{name:'Історичний музей',stars:2,x:376,y:290}
+};
+const roads=[['palace','hall',4],['palace','village',2],['palace','museum',3],['hall','gate',2],['gate','tower',3],['gate','museum',4],['tower','market',1],['tower','museum',6],['village','market',6]];
+const adjacency=Object.fromEntries(Object.keys(places).map(k=>[k,{}]));for(const [a,b,d] of roads){adjacency[a][b]=d;adjacency[b][a]=d}
+const variants=[{start:'palace',budget:10,title:'Оригінальна задача · 10 км'},{start:'palace',budget:8,title:'Стисла поїздка · 8 км'},{start:'palace',budget:9,title:'Маршрут · 9 км'},{start:'hall',budget:8,title:'Від Мерії · 8 км'},{start:'market',budget:9,title:'Від ринку · 9 км'},{start:'village',budget:10,title:'Від Народного села · 10 км'}];
+// Exhaustive enumeration of all walks within the budget; repeat visits do not award points twice.
+function optimal(start,budget){let best=-1,paths=[];function dfs(path,km,mask,score){if(score>best){best=score;paths=[{path:path.slice(),km,score}]}else if(score===best){paths.push({path:path.slice(),km,score})}for(const [to,d] of Object.entries(adjacency[path.at(-1)])){if(km+d>budget)continue;const names=Object.keys(places);const bit=1<<names.indexOf(to);const first=(mask&bit)===0;dfs(path.concat(to),km+d,mask|bit,score+(first?places[to].stars:0));}}const keys=Object.keys(places);dfs([start],0,1<<keys.indexOf(start),0);paths.sort((a,b)=>a.km-b.km||a.path.length-b.path.length);return {best,paths};}
+variants.forEach(v=>{v.best=optimal(v.start,v.budget)});
+if(variants[0].best.best!==15)throw Error('Невірно задано карту Сеула');
+const fresh=v=>({path:[v.start],attempts:0,solved:false});let records=variants.map(fresh);
+try{const stored=JSON.parse(localStorage.getItem('bober_seoul_v2')||'null');if(Array.isArray(stored)&&stored.length===variants.length){records=stored.map((r,i)=>{const v=variants[i];let route=[v.start],km=0;for(const next of (Array.isArray(r.path)?r.path.slice(1):[])){const d=adjacency[route.at(-1)][next];if(!d||km+d>v.budget)break;route.push(next);km+=d;}return{path:route,attempts:Math.max(0,Math.floor(Number(r.attempts)||0)),solved:!!r.solved}});}}catch(e){}
+const el=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg';let selected=0,revealed=false,tab='route',highlight=false;
+function save(){try{localStorage.setItem('bober_seoul_v2',JSON.stringify(records))}catch(e){}}
+function summarize(route){let km=0,stars=0,seen=new Set([route[0]]);for(let i=1;i<route.length;i++){const to=route[i],from=route[i-1];km+=adjacency[from][to];if(!seen.has(to)){stars+=places[to].stars;seen.add(to)}}return{km,stars};}
+function node(tag,attrs,parent){const n=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));parent.append(n);return n;}
+function onRoute(path,a,b){return path.some((v,i)=>i>0&&((v===a&&path[i-1]===b)||(v===b&&path[i-1]===a)))}
+function drawMap(){const svg=el('seoulMap'),rec=records[selected],v=variants[selected],sol=highlight?v.best.paths[0].path:[];svg.replaceChildren();node('rect',{x:0,y:0,width:750,height:530,rx:24,fill:'#eff9f4'},svg);for(const [a,b,d] of roads){const pa=places[a],pb=places[b];node('line',{x1:pa.x,y1:pa.y,x2:pb.x,y2:pb.y,class:'road'+(onRoute(sol,a,b)?' optimal':onRoute(rec.path,a,b)?' selected':'')},svg);const offset=a==='tower'&&b==='market'?-13:0;const label=node('text',{x:(pa.x+pb.x)/2+offset,y:(pa.y+pb.y)/2-10,class:'distance'},svg);label.textContent=d+' км';}
+for(const [id,p] of Object.entries(places)){const visited=rec.path.includes(id),optimal=sol.includes(id);const g=node('g',{class:'place'+(visited?' visited':'')+(id===v.start?' start':'')+(optimal?' optimal':''),role:'button',tabindex:'0','aria-label':p.name+', '+p.stars+' зірочок'},svg);node('circle',{cx:p.x,cy:p.y,r:51},g);const label=node('text',{x:p.x,y:p.y-9,class:'name'},g);const parts=p.name.split(' ');if(parts.length>2){const split=Math.ceil(parts.length/2);[parts.slice(0,split).join(' '),parts.slice(split).join(' ')].forEach((t,i)=>{const sp=node('tspan',{x:p.x,dy:i===0?'0':'17'},label);sp.textContent=t;});}else{label.textContent=p.name;}const star=node('text',{x:p.x,y:p.y+34,class:'stars'},g);star.textContent='★'.repeat(p.stars)||'СТАРТ';g.addEventListener('click',()=>add(id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();add(id)}});}}
+function clearFeedback(){el('seoulFeedback').className='feedback';el('seoulFeedback').textContent='';}
+function add(id){const v=variants[selected],r=records[selected],last=r.path.at(-1);if(id===last){if(r.path.length>1)r.path.pop();save();clearFeedback();render();return}const d=adjacency[last][id];if(!d){el('seoulFeedback').className='feedback bad';el('seoulFeedback').textContent='Немає прямої дороги до цього місця. Оберіть сусідню точку.';return}const km=summarize(r.path).km;if(km+d>v.budget){el('seoulFeedback').className='feedback bad';el('seoulFeedback').textContent=`Це перевищить бюджет ${v.budget} км. Оберіть іншу дорогу.`;return}r.path.push(id);save();clearFeedback();render();}
+function drawLock(){const r=records[selected],open=r.attempts>=3;el('seoulLocked').classList.toggle('hidden',open);el('seoulUnlocked').classList.toggle('hidden',!open);el('seoulSolution').classList.toggle('hidden',!open||!revealed);el('seoulReveal').textContent=revealed?'🙈 Приховати розв’язання':'📖 Відкрити пояснення';el('seoulDots').innerHTML=[0,1,2].map(i=>`<span class="${r.attempts>i?'on':''}"></span>`).join('');el('seoulRemaining').textContent='Залишилося перевірок: '+Math.max(0,3-r.attempts);highlight=open&&revealed&&tab==='route';if(open&&revealed)explain()}
+function explain(){const v=variants[selected],box=el('seoulExplanation'),best=v.best.paths[0];document.querySelectorAll('[data-seoul-tab]').forEach(b=>b.classList.toggle('active',b.dataset.seoulTab===tab));if(tab==='route'){const rows=[];let km=0,stars=0;best.path.forEach((id,i)=>{if(i>0){km+=adjacency[best.path[i-1]][id];stars+=places[id].stars;}rows.push(`<div class="seoulStep"><b>${i===0?'Старт':`Крок ${i}`}: ${places[id].name}</b><div>${i===0?'Початок маршруту':`+ ${adjacency[best.path[i-1]][id]} км · + ${places[id].stars} ⭐`}</div><small>Разом: ${km} км · ${stars} зірочок</small></div>`)});box.innerHTML=`<h3>Найкращий маршрут</h3><p><strong>${best.path.map(x=>places[x].name).join(' → ')}</strong></p><p>Зібрано <strong>${v.best.best} ⭐</strong>, пройдено <strong>${best.km} км</strong> із ${v.budget} км.</p>${rows.join('')}<p class="small">На карті оптимальний маршрут підсвічено зеленим.</p>`;}else{const variations=[{name:'Через музей і вежу',path:['palace','museum','tower']},{name:'Через музей і браму',path:['palace','museum','gate','tower']},{name:'Через мерію й браму',path:['palace','hall','gate','tower']},{name:'Через народне село',path:['palace','village','market','tower']},{name:'Максимальний маршрут',path:['palace','hall','gate','tower','market']}].filter(a=>v.start==='palace');if(!variations.length)variations.push({name:'Один з оптимальних варіантів',path:best.path});const rows=variations.map(q=>{const stat=summarize(q.path);return `<div class="seoulStep"><b>${q.name}</b><div>${q.path.map(x=>places[x].name).join(' → ')}</div><small>${stat.km} км · ${stat.stars} ⭐ ${stat.km>v.budget?'(перевищує ліміт)':''}</small></div>`});box.innerHTML=`<h3>Порівняння маршрутів</h3>${rows.join('')}<p class="small">Зірочки початкового місця не рахуються, усі відвідані місця враховуються один раз. Для оригінальної задачі максимум — 15 зірочок, а не 13.</p>`;}}
+function render(){const v=variants[selected],r=records[selected],st=summarize(r.path);const buttons=el('seoulTasks');buttons.replaceChildren();variants.forEach((q,i)=>{const b=document.createElement('button');b.type='button';b.className='btn secondary';b.textContent=`${i+1}. ${q.title}`+(records[i].solved?' ✓':'');if(i===selected){b.style.background='#174e95';b.style.color='#fff';}b.onclick=()=>{selected=i;revealed=false;tab='route';clearFeedback();render();};buttons.append(b)});el('seoulQuestion').textContent=`Завдання ${selected+1}. Старт: ${places[v.start].name}. Квиток: ${v.budget} км. Прокладіть маршрут, який дозволить зібрати якомога більше зірочок.`;el('seoulPath').textContent=r.path.map(id=>places[id].name).join(' → ');el('seoulKm').textContent=st.km;el('seoulStars').textContent=st.stars;el('seoulBudget').textContent=v.budget;el('seoulAttempts').textContent=`Перевірок: ${r.attempts}`;el('seoulUndo').disabled=r.path.length<2;drawLock();drawMap();}
+el('seoulCheck').onclick=()=>{const v=variants[selected],r=records[selected],st=summarize(r.path);const ok=st.km<=v.budget&&st.stars===v.best.best;r.attempts++;if(ok)r.solved=true;save();el('seoulFeedback').className='feedback '+(ok?'good':'bad');el('seoulFeedback').textContent=ok?'✅ Правильно! Ви зібрали найбільшу можливу кількість зірочок.':'🔎 Маршрут допустимий, але можна зібрати більше зірочок. Спробуйте інший шлях.';render();};
+el('seoulUndo').onclick=()=>{if(records[selected].path.length>1){records[selected].path.pop();save();clearFeedback();render();}};
+el('seoulClear').onclick=()=>{records[selected].path=[variants[selected].start];save();clearFeedback();render();};
+el('seoulReveal').onclick=()=>{revealed=!revealed;render();};
+document.querySelectorAll('[data-seoul-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.seoulTab;render();});
+render();
+})();
+</script>
+
+<script>
+(()=>{'use strict';
+const BASE_RED=[[249,20],[301,25],[459,77],[159,129],[233,174],[142,358],[449,396],[503,385],[529,411]];
+const BASE_BROWN=[[567,149],[548,235],[589,291],[324,339],[291,373],[341,403]];
+const SOLUTION=[[[222,430],[575,0]],[[333,430],[640,298]]];
+const W=640,H=430;
+const variants=[
+ {title:'Оригінальна задача: Розділювач грибів',transform:([x,y])=>[x,y]},
+ {title:'Дзеркальна галявина',transform:([x,y])=>[W-x,y]},
+ {title:'Гриби догори дриґом',transform:([x,y])=>[W-x,H-y]},
+ {title:'Галявина з іншого боку',transform:([x,y])=>[x,H-y]},
+ {title:'Повернута галявина',transform:([x,y])=>[y*W/H,(W-x)*H/W]}
+];
+const initial=()=>[[[0,170],[640,170]],[[0,300],[640,300]]];
+const copyLines=lines=>lines.map(line=>line.map(pt=>pt.slice()));
+const fresh=()=>({lines:initial(),attempts:0,solved:false});
+let records=variants.map(fresh);
+try{const data=JSON.parse(localStorage.getItem('bober_mushrooms_v1')||'null');if(Array.isArray(data)&&data.length===variants.length)records=data.map(r=>({lines:Array.isArray(r.lines)&&r.lines.length===2&&r.lines.every(l=>Array.isArray(l)&&l.length===2&&l.every(p=>Array.isArray(p)&&p.length===2&&p.every(n=>Number.isFinite(n))))?r.lines:initial(),attempts:Math.max(0,Math.floor(Number(r.attempts)||0)),solved:!!r.solved}));}catch(e){}
+const $=id=>document.getElementById(id),SVGNS='http://www.w3.org/2000/svg';
+let current=0,revealed=false,drag=null;
+function save(){try{localStorage.setItem('bober_mushrooms_v1',JSON.stringify(records));}catch(e){}}
+function points(){const f=variants[current].transform;return {red:BASE_RED.map(f),brown:BASE_BROWN.map(f)};}
+function canonical(){return SOLUTION.map(line=>line.map(variants[current].transform));}
+function cross(a,b,p){return (b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0]);}
+function sectors(point,lines){return lines.map(line=>cross(line[0],line[1],point)>0?1:0).join('');}
+function checkLines(lines){const data=points(),groups=new Map();for(const [color,pts] of Object.entries(data)){for(const p of pts){if(lines.some(line=>Math.abs(cross(line[0],line[1],p))<9*Math.hypot(line[1][0]-line[0][0],line[1][1]-line[0][1])))return false;const code=sectors(p,lines);if(groups.has(code)&&groups.get(code)!==color)return false;groups.set(code,color);}}return true;}
+function element(parent,tag,attrs={}){const el=document.createElementNS(SVGNS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));parent.appendChild(el);return el;}
+function mushroom(svg,p,color){const [x,y]=p,g=element(svg,'g',{class:'fungi '+color,transform:`translate(${x} ${y})`});element(g,'ellipse',{class:'shadow',cx:0,cy:8,rx:11,ry:3});element(g,'path',{class:'stem',d:'M-4 1 L-4 8 Q0 11 4 8 L4 1 Z'});element(g,'path',{class:'cap',d:'M-13 -1 Q-11 -14 0 -14 Q11 -14 13 -1 Q0 4 -13 -1 Z',stroke:'#714a40','stroke-width':'.8'});if(color==='red'){for(const [dx,dy] of [[-6,-5],[0,-9],[6,-4],[3,-2],[-2,-3]])element(g,'circle',{class:'speckle',cx:dx,cy:dy,r:1.5});}else{for(const [dx,dy] of [[-4,-6],[4,-6],[0,-3]])element(g,'circle',{cx:dx,cy:dy,r:.7,fill:'#b68a70'});}}
+function endpointOnBorder(p){const x=Math.max(0,Math.min(W,p[0])),y=Math.max(0,Math.min(H,p[1]));const scores=[x,W-x,y,H-y];const min=Math.min(...scores);const n=scores.indexOf(min);return n===0?[0,y]:n===1?[W,y]:n===2?[x,0]:[x,H];}
+function draw(svg,lines,example=false){svg.replaceChildren();element(svg,'rect',{x:0,y:0,width:W,height:H,fill:'#fff'});for(let i=0;i<lines.length;i++){const line=lines[i];element(svg,'line',{x1:line[0][0],y1:line[0][1],x2:line[1][0],y2:line[1][1],class:example?'exampleSeparator':'separator'});}const {red,brown}=points();red.forEach(p=>mushroom(svg,p,'red'));brown.forEach(p=>mushroom(svg,p,'brown'));if(!example){lines.forEach((line,i)=>line.forEach((p,j)=>{const marker=element(svg,'circle',{cx:p[0],cy:p[1],r:10,class:'handle',tabindex:0,role:'slider','aria-label':`Пряма ${i+1}, маркер ${j+1}`});marker.addEventListener('pointerdown',e=>{e.preventDefault();drag={i,j,pointerId:e.pointerId};marker.classList.add('active');svg.setPointerCapture(e.pointerId);});marker.addEventListener('keydown',e=>{const d=e.shiftKey?15:5,delta={ArrowLeft:[-d,0],ArrowRight:[d,0],ArrowUp:[0,-d],ArrowDown:[0,d]}[e.key];if(!delta)return;e.preventDefault();const q=records[current].lines[i][j];records[current].lines[i][j]=endpointOnBorder([q[0]+delta[0],q[1]+delta[1]]);save();drawMain();});}));}}
+function drawMain(){draw($('mushroomMap'),records[current].lines);}
+const mainSvg=$('mushroomMap');
+mainSvg.addEventListener('pointermove',e=>{if(!drag||e.pointerId!==drag.pointerId)return;const rect=mainSvg.getBoundingClientRect();records[current].lines[drag.i][drag.j]=endpointOnBorder([(e.clientX-rect.left)*W/rect.width,(e.clientY-rect.top)*H/rect.height]);save();drawMain();});
+function stopDrag(){drag=null;}
+mainSvg.addEventListener('pointerup',stopDrag);mainSvg.addEventListener('pointercancel',stopDrag);mainSvg.addEventListener('lostpointercapture',stopDrag);
+
+function showFeedback(t,kind){const el=$('mushroomFeedback');el.textContent=t;el.className='feedback '+kind;}
+function renderButtons(){const el=$('mushroomTasks');el.replaceChildren();variants.forEach((v,i)=>{const b=document.createElement('button');b.type='button';b.className='btn secondary'+(i===current?' active':'');b.textContent=(i+1)+'. '+(i===0?'Оригінальна':`Варіант ${i+1}`)+(records[i].solved?' ✓':'');if(i===current){b.style.background='#174e95';b.style.color='white';}b.onclick=()=>{current=i;revealed=false;showFeedback('','');render();};el.appendChild(b);});}
+function render(){renderButtons();$('mushroomQuestion').textContent=`Завдання ${current+1}. ${variants[current].title}. Перемістіть два розділювачі, щоб червоні та коричневі гриби не опинилися в одній ділянці.`;drawMain();$('mushroomAttempts').textContent=`Перевірок: ${records[current].attempts}`;const unlocked=records[current].attempts>=3;$('mushroomLocked').classList.toggle('hidden',unlocked);$('mushroomUnlocked').classList.toggle('hidden',!unlocked);$('mushroomSolution').classList.toggle('hidden',!unlocked||!revealed);$('mushroomReveal').textContent=revealed?'🙈 Приховати пояснення':'📖 Показати приклад розв’язання';$('mushroomDots').innerHTML=[0,1,2].map(i=>`<span class="${i<records[current].attempts?'on':''}"></span>`).join('');$('mushroomRemaining').textContent=`Ще перевірок: ${Math.max(0,3-records[current].attempts)}`;if(unlocked&&revealed)draw($('mushroomExample'),canonical(),true);}
+$('mushroomCheck').onclick=()=>{const rec=records[current];rec.attempts++;const ok=checkLines(rec.lines);if(ok)rec.solved=true;save();showFeedback(ok?'✅ Правильно! Гриби кожної ділянки мають один колір.':'🔎 Деякі гриби різних кольорів досі в одній ділянці або пряма проходить надто близько до гриба. Пересуньте маркери та повторіть.',ok?'good':'bad');render();};
+$('mushroomReset').onclick=()=>{records[current].lines=initial();save();showFeedback('','');render();};
+$('mushroomReveal').onclick=()=>{revealed=!revealed;render();};
+// Validate solution with the same separation logic used for students.
+for(let i=0;i<variants.length;i++){current=i;if(!checkLines(canonical()))console.warn('Mushroom example invalid for variant '+i);}
+current=0;render();
+})();
+</script>
+
+</body></html>
